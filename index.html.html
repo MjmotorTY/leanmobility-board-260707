@@ -1,0 +1,289 @@
+<title>Lean Mobility 授權維修廠專案｜董事會討論大綱</title>
+<style>
+  :root{
+    --ink:#101d33;
+    --ink-soft:#3a4763;
+    --paper:#faf8f3;
+    --paper-alt:#f0ece1;
+    --line:#d9d2bf;
+    --bronze:#9c7a3c;
+    --bronze-soft:#c7a86a;
+    --amber-tx:#8a5a12;
+    --muted:#6b7280;
+    --serif: "Noto Serif TC","Times New Roman","PMingLiU","儷宋 Pro",serif;
+    --sans: "Noto Sans TC","Microsoft JhengHei","PingFang TC","Segoe UI",sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .deck{
+    height:100vh;
+    overflow-y:auto;
+    scroll-snap-type:y mandatory;
+    scrollbar-width:thin;
+  }
+
+  .slide{
+    position:relative;
+    min-height:100vh;
+    scroll-snap-align:start;
+    padding:64px 88px 56px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:28px;
+    border-bottom:1px solid var(--line);
+  }
+  .slide.alt{ background:var(--paper-alt); }
+
+  .slide-frame{
+    position:absolute;
+    top:28px; left:88px; right:88px;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-size:11px;
+    letter-spacing:.14em;
+    color:var(--muted);
+    text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+    padding-bottom:10px;
+  }
+  .slide-frame span:last-child{ font-variant-numeric: tabular-nums; }
+
+  h1,h2{
+    font-family:var(--serif);
+    color:var(--ink);
+    margin:0;
+    text-wrap:balance;
+    font-weight:700;
+  }
+  h1{ font-size:36px; line-height:1.4; }
+  .cover h1{ font-size:40px; line-height:1.45; }
+  p{ margin:0; line-height:1.85; color:var(--ink-soft); font-size:17px; max-width:66ch; }
+
+  .rule{ width:56px; height:3px; background:var(--bronze); border:none; margin:0; }
+
+  .pending{ color:var(--amber-tx); text-decoration:underline; text-decoration-color:var(--bronze-soft); text-underline-offset:3px; font-weight:600; }
+
+  /* ---------- Cover ---------- */
+  .cover{ justify-content:center; align-items:flex-start; gap:22px; }
+
+  /* ---------- bullet list ---------- */
+  ul.doc-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; }
+  ul.doc-list li{
+    position:relative; padding:18px 0 18px 30px; border-top:1px solid var(--line);
+    font-size:17px; line-height:1.8; color:var(--ink-soft);
+  }
+  ul.doc-list li:first-child{ border-top:none; }
+  ul.doc-list li::before{
+    content:"—"; position:absolute; left:0; top:18px; color:var(--bronze); font-weight:700;
+  }
+  ul.doc-list li b{ color:var(--ink); font-weight:700; }
+
+  /* checklist (六) */
+  .decision-box{ background:#fff; border:1px solid var(--bronze-soft); border-radius:4px; padding:6px 30px; }
+  .decision{ display:flex; align-items:center; gap:16px; padding:18px 0; border-top:1px solid var(--line); }
+  .decision:first-child{ border-top:none; }
+  .decision .box{ width:20px; height:20px; border:2px solid var(--bronze); flex:none; border-radius:2px; }
+  .decision span{ font-size:17px; color:var(--ink); font-weight:600; }
+
+  /* roadmap (五) */
+  .roadmap{ display:flex; align-items:stretch; gap:0; margin-top:8px; }
+  .rm-step{ flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; padding:0 6px; }
+  .rm-step .line{ width:100%; height:2px; background:var(--line); position:absolute; top:9px; left:-50%; z-index:0; }
+  .rm-step:first-child .line{ display:none; }
+  .rm-step .node{ width:14px; height:14px; border-radius:50%; border:2px solid var(--bronze); background:var(--paper); z-index:1; margin-bottom:14px; }
+  .rm-step .name{ font-size:14px; font-weight:700; color:var(--ink); }
+  .rm-step .tag{ font-size:11.5px; color:var(--muted); margin-top:4px; }
+
+  /* ---------- nav dots ---------- */
+  .navdots{
+    position:fixed; right:22px; top:50%; transform:translateY(-50%);
+    display:flex; flex-direction:column; gap:10px; z-index:50;
+  }
+  .navdots button{
+    width:8px; height:8px; border-radius:50%; border:1px solid var(--bronze-soft);
+    background:transparent; padding:0; cursor:pointer;
+  }
+  .navdots button.active{ background:var(--bronze); }
+
+  @media (max-width: 860px){
+    .slide{ padding:88px 24px 40px; }
+    .slide-frame{ left:24px; right:24px; }
+    .cover h1{ font-size:30px; }
+    h1{ font-size:26px; }
+    .roadmap{ flex-direction:column; gap:14px; align-items:flex-start; }
+    .rm-step{ flex-direction:row; text-align:left; gap:12px; }
+    .rm-step .line{ display:none; }
+    .rm-step .node{ margin-bottom:0; }
+    .navdots{ display:none; }
+  }
+
+  @media print{
+    .navdots{ display:none; }
+    .deck{ height:auto; overflow:visible; }
+    .slide{ min-height:100vh; page-break-after:always; }
+  }
+</style>
+
+<div class="deck" id="deck">
+
+  <!-- 00 COVER -->
+  <section class="slide cover">
+    <h1>Lean Mobility 授權維修廠專案<br/>董事會討論大綱（草案 v0.2）</h1>
+    <hr class="rule"/>
+  </section>
+
+  <!-- 01 會議目的 -->
+  <section class="slide">
+    <div class="slide-frame"><span>Lean Mobility 授權維修廠專案</span><span>01 / 09</span></div>
+    <h1>會議目的</h1>
+    <p>向董事報告 Lean Mobility 授權維修廠專案目前進度、後續籌設規劃及所需資源，並提請相關事項決議，作為後續執行依據。</p>
+  </section>
+
+  <!-- 02 一、專案背景 -->
+  <section class="slide alt">
+    <div class="slide-frame"><span>Lean Mobility 授權維修廠專案</span><span>02 / 09</span></div>
+    <h1>一、專案背景</h1>
+    <ul class="doc-list">
+      <li>法規已公告，安審程序已啟動，預計 3–6 個月可領牌上路。</li>
+      <li>合約已進入最後修訂階段，合約重點如附件。</li>
+      <li>據點營運時間約落在 2026/12–2027/01，可開始籌設及申請相關作業。</li>
+      <li>與 Lean Mobility 持續討論籌設細節。</li>
+    </ul>
+  </section>
+
+  <!-- 03 二、公司及簽約主體確認 -->
+  <section class="slide">
+    <div class="slide-frame"><span>Lean Mobility 授權維修廠專案</span><span>03 / 09</span></div>
+    <h1>二、公司及簽約主體確認</h1>
+    <ul class="doc-list">
+      <li>簽約主體／所有權人：<b>全智投資有限公司</b></li>
+      <li>所有權人／授權經理人：<b>顧正賢</b> ／ <span class="pending">待決議</span></li>
+      <li>公司更名及營業項目：預計十月進行</li>
+    </ul>
+  </section>
+
+  <!-- 04 三、據點規劃 -->
+  <section class="slide alt">
+    <div class="slide-frame"><span>Lean Mobility 授權維修廠專案</span><span>04 / 09</span></div>
+    <h1>三、據點規劃</h1>
+    <ul class="doc-list">
+      <li>第一據點：<b>桃園（經國路／春日路）</b>，第二據點：<b>中壢</b>。需確認據點位置是否符合 Lean Mobility 授權規範。</li>
+      <li>目前參考物件（第一據點）：慈文路，60 坪，租金約 10 萬。</li>
+      <li>租賃條件、設置預算（<span class="pending">待決議</span>，<span class="pending">初步預估預算約 300～500 萬元</span>）</li>
+    </ul>
+  </section>
+
+  <!-- 05 四、人力及組織規劃 -->
+  <section class="slide">
+    <div class="slide-frame"><span>Lean Mobility 授權維修廠專案</span><span>05 / 09</span></div>
+    <h1>四、人力及組織規劃</h1>
+    <ul class="doc-list">
+      <li>組織架構 Lean Mobility 研擬中，屆時依其要求規劃。</li>
+      <li>授權經理人（<span class="pending">待決議</span>）／零服主管（<span class="pending">待決議</span>，討論是否兼任服專）</li>
+      <li>工作項目：PDI／交車／保險／零服／鈑金／客服</li>
+      <li>部分職務由集團內人員兼任或調任，配置方式待確認。（<span class="pending">待決議</span>）</li>
+    </ul>
+  </section>
+
+  <!-- 06 五、籌備時程 -->
+  <section class="slide alt">
+    <div class="slide-frame"><span>Lean Mobility 授權維修廠專案</span><span>06 / 09</span></div>
+    <h1>五、籌備時程</h1>
+    <div class="roadmap">
+      <div class="rm-step key"><div class="line"></div><div class="node"></div><div class="name">董事同意</div></div>
+      <div class="rm-step"><div class="line"></div><div class="node"></div><div class="name">完成合約</div></div>
+      <div class="rm-step"><div class="line"></div><div class="node"></div><div class="name">確認據點</div></div>
+      <div class="rm-step"><div class="line"></div><div class="node"></div><div class="name">場地建置</div></div>
+      <div class="rm-step"><div class="line"></div><div class="node"></div><div class="name">人員招募</div></div>
+      <div class="rm-step"><div class="line"></div><div class="node"></div><div class="name">教育訓練</div></div>
+      <div class="rm-step"><div class="line"></div><div class="node"></div><div class="name">安審／認證</div></div>
+      <div class="rm-step key"><div class="line"></div><div class="node"></div><div class="name">正式營運</div><div class="tag">2026/12–2027/01</div></div>
+    </div>
+  </section>
+
+  <!-- 07 六、需董事決議事項 -->
+  <section class="slide">
+    <div class="slide-frame"><span>Lean Mobility 授權維修廠專案</span><span>07 / 09</span></div>
+    <h1>六、需董事決議事項</h1>
+    <div class="decision-box">
+      <div class="decision"><div class="box"></div><span>是否同意推動本案</span></div>
+      <div class="decision"><div class="box"></div><span>確認簽約主體、授權經理人</span></div>
+      <div class="decision"><div class="box"></div><span>同意據點建置與規劃方式</span></div>
+      <div class="decision"><div class="box"></div><span>同意人力配置</span></div>
+      <div class="decision"><div class="box"></div><span>專案時程另行書面呈報</span></div>
+      <div class="decision"><div class="box"></div><span>指派專案負責人、各單位分工</span></div>
+    </div>
+  </section>
+
+  <!-- 08 七、後續工作分工 -->
+  <section class="slide alt">
+    <div class="slide-frame"><span>Lean Mobility 授權維修廠專案</span><span>08 / 09</span></div>
+    <h1>七、後續工作分工</h1>
+    <p>待建立專案工作項目，明確列出負責單位、完成期限及追蹤機制。</p>
+  </section>
+
+  <!-- 09 附件 -->
+  <section class="slide">
+    <div class="slide-frame"><span>Lean Mobility 授權維修廠專案</span><span>09 / 09</span></div>
+    <h1>附件</h1>
+    <ul class="doc-list">
+      <li>LEAN3 合約修訂重點摘要</li>
+    </ul>
+  </section>
+
+</div>
+
+<div class="navdots" id="navdots"></div>
+
+<script>
+(function(){
+  var deck = document.getElementById('deck');
+  var slides = Array.prototype.slice.call(deck.querySelectorAll('.slide'));
+  var dotsWrap = document.getElementById('navdots');
+  slides.forEach(function(s, i){
+    var b = document.createElement('button');
+    b.setAttribute('aria-label', 'slide ' + (i+1));
+    b.addEventListener('click', function(){ s.scrollIntoView({behavior:'smooth'}); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function currentIndex(){
+    var top = deck.scrollTop;
+    var best = 0, bestDist = Infinity;
+    slides.forEach(function(s, i){
+      var d = Math.abs(s.offsetTop - top);
+      if (d < bestDist){ bestDist = d; best = i; }
+    });
+    return best;
+  }
+  function refresh(){
+    var idx = currentIndex();
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
+  }
+  deck.addEventListener('scroll', refresh, {passive:true});
+  refresh();
+
+  document.addEventListener('keydown', function(e){
+    if (['ArrowDown','ArrowRight','PageDown'].indexOf(e.key) > -1){
+      e.preventDefault();
+      var idx = Math.min(currentIndex() + 1, slides.length - 1);
+      slides[idx].scrollIntoView({behavior:'smooth'});
+    } else if (['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key) > -1){
+      e.preventDefault();
+      var idx2 = Math.max(currentIndex() - 1, 0);
+      slides[idx2].scrollIntoView({behavior:'smooth'});
+    }
+  });
+})();
+</script>
